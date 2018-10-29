@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BarSelectionCell" id="K4d-bh-dQN" customClass="BarSelectionCell" customModule="Cover_Charges" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K4d-bh-dQN" id="6K4-rO-Oay">
+                <rect key="frame" x="0.0" y="0.0" width="341" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNF-hv-ySJ">
+                        <rect key="frame" x="16" y="22" width="343" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UNF-hv-ySJ" firstAttribute="leading" secondItem="6K4-rO-Oay" secondAttribute="leadingMargin" id="BEu-MG-71c"/>
+                    <constraint firstItem="UNF-hv-ySJ" firstAttribute="centerY" secondItem="6K4-rO-Oay" secondAttribute="centerY" id="ClC-Fg-cBH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="UNF-hv-ySJ" secondAttribute="trailing" constant="-26" id="cjv-Tl-JOJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="barName" destination="UNF-hv-ySJ" id="UbX-q4-EMq"/>
+            </connections>
+            <point key="canvasLocation" x="-71.5" y="23"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,152 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bar Signup Form</title>
+        <!-- Meta tag Keywords -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Flat Sign Up Form Responsive Widget Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+                                       Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- Meta tag Keywords -->
+        <!-- css files -->
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+        <!-- //css files -->
+        <!-- online-fonts -->
+        <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'><link href='//fonts.googleapis.com/css?family=Raleway+Dots' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+
+        <div id="myDIV" class="header-addButton">
+            <h2>Add Menu Items</h2>
+            <input type="text" id="myInput" placeholder="Add Menu Items...">
+            <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+
+        <ul id="myUL">
+            <li>Hit the gym</li>
+            <li>Meet George</li>
+            <li>Buy eggs</li>
+            <li>Read a book</li>
+            <li>Organize office</li>
+        </ul>
+        <div style ="margin-left: 20%; margin-top: 5px">
+            <input type = "button" value = "submit menu Items" onclick="pushMenuData()"/>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCZ3qh0qgojodEb-GBkH5lxiYvEbwk62Bk",
+                authDomain: "cover-charges.firebaseapp.com",
+                databaseURL: "https://cover-charges.firebaseio.com",
+                projectId: "cover-charges",
+            };
+            firebase.initializeApp(config);
+            var database = firebase.database();
+
+            // Create a "close" button and append it to each list item
+            var myNodelist = document.getElementsByTagName("LI");
+            var i;
+            for (i = 0; i < myNodelist.length; i++) {
+                var span = document.createElement("SPAN");
+                var span1 = document.createElement("SPAN");
+                var txt = document.createTextNode("\u00D7");
+                var txt1 = document.createElement("INPUT");
+                span.className = "close";
+                span1.className = "close1";
+                txt1.className = "textPrice"
+                span.appendChild(txt);
+                span1.appendChild(txt1);
+                myNodelist[i].appendChild(span1);
+                myNodelist[i].appendChild(span);
+
+            }
+
+            // Click on a close button to hide the current list item
+            var close = document.getElementsByClassName("close");
+            var i;
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                    var div = this.parentElement;
+                    var divParent = div.parentElement;
+                    console.log(divParent.removeChild(div))
+                }
+            }
+            // Create a new list item when clicking on the "Add" button
+            function newElement() {
+                var li = document.createElement("li");
+                var inputValue = document.getElementById("myInput").value;
+                var t = document.createTextNode(inputValue);
+                li.appendChild(t);
+                if (inputValue === '') {
+                    alert("You must write something!");
+
+                } else {
+                    document.getElementById("myUL").appendChild(li);
+                }
+                document.getElementById("myInput").value = "";
+
+                var span = document.createElement("SPAN");
+                var span1 = document.createElement("SPAN");
+                var txt = document.createTextNode("\u00D7");
+                var txt1 = document.createElement("INPUT");
+                span.className = "close";
+                span1.className = "close1";
+                txt1.className = "textPrice"
+                span1.appendChild(txt1);
+                span.appendChild(txt);
+                li.appendChild(span);
+                li.appendChild(span1);
+                for (i = 0; i < close.length; i++) {
+                    close[i].onclick = function() {
+                        var div = this.parentElement;
+                        var divParent = div.parentElement;
+                        console.log(divParent.removeChild(div))
+                    }
+                }
+            }
+            function pushMenuData() {
+
+                var authflag = false;
+                firebase.auth().onAuthStateChanged(function(user) {
+                    
+                        if (user) {
+                            var ul = document.getElementById("myUL");
+                            var items = ul.getElementsByTagName("li");
+                            var prices = document.getElementsByClassName("textPrice");
+                            for (var i = 0; i < items.length; ++i) {
+                                var str = items[i].textContent
+                                var price = prices[i].value
+                                str = str.substring(0,str.length-1)
+                                firebase.database().ref('stripe_bar_pricing/' + user.uid + '/menu_items/').push({
+                                    name: str,
+                                    price: prices[i]
+                                })
+                                //brings user to dashboard
+                                console.log("hi");
+                            }
+                            window.location.href = "dashboard.html";
+                        } else {
+                            //Popup to tell user session has expired and returns them to our homepage, deletes user created on last page
+                            window.location.href = "index.html";
+                        }
+                    
+                })}
+        </script>
+
+        <div class="clear"></div>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+body
+{
+    background:url('../img/bg.jpg') no-repeat 0% 87% fixed;
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+    
+}
+body .terms
+{
+    text-align: center;
+    background-color: rgba(125, 63, 152, 0.52);
+}
+body .terms textarea
+{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size:15px; 
+    font-family: 'Lato', sans-serif;
+    width:80%;
+}
+h1
+{
+    background-color: rgba(125, 63, 152, 0.52);
+}
+.check
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 170px;
+    display: inline;
+}
+.accept
+{
+    display: inline;
+    color:white;
+}
+.title-item
+{
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+body input[type ="button"]
+{
+    margin-left: 35%;
+    margin-bottom: 3%;
+}
+input[type = "button"] 
+{
+    color: white;
+    background: #d52685;
+    border: none;
+    padding: 14px 50px;
+    font-size: 22px;
+    border-radius: 2px;
+    margin: 17px;
+    font-family: 'Lato', sans-serif;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -o-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -ms-transition:0.5s all;
+}

@@ -1,0 +1,88 @@
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* Style the list items */
+.menuItem{
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.balance-text h2{ display: inline }
+.menu
+{
+    
+    margin-left: 150px;
+    margin-right: 150px
+}
+/* Set all odd list items to a different color (zebra-stripes) */
+.menuItem:nth-child(odd) {
+    background: #f9f9f9;
+}
+.menuSection{
+    box-sizing: border-box;
+}
+input {
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+#cover {
+    margin-top:50px;
+}
+#drinks {
+    margin-top:50px;
+}
+#accepting {
+    margin-bottom:50px;
+}
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+.close1 {
+    position: absolute;
+    right: 28px;
+    top: 0;
+    padding: 3px 86px 12px 16px;
+    width:auto;
+    height: auto;
+}
+.close1:before {
+    position:relative;
+    top: 7px;
+    content:"$";
+    right: 190px;
+    margin-left: 3px;
+    width:auto;
+}
+.textPrice {
+    text-align: center;
+}
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+.header-addButton {
+    margin: 7%
+}

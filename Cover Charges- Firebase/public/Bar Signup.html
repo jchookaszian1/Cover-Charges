@@ -1,0 +1,211 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bar Signup Form</title>
+        <!-- Meta tag Keywords -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Flat Sign Up Form Responsive Widget Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+                                       Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- Meta tag Keywords -->
+        <!-- css files -->
+        <link href="css/style1.css" rel="stylesheet" type="text/css" media="all">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+        <!-- //css files -->
+        <!-- online-fonts -->
+        <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'><link href='//fonts.googleapis.com/css?family=Raleway+Dots' rel='stylesheet' type='text/css'>
+        <script type="application/javascript">
+            var ip = null;
+            function getIP(json) {
+                ip = json.ip;
+            }
+        </script>
+        <script type="application/javascript" src="https://json.geoiplookup.io/api?callback=getIP"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
+        <script>
+
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCZ3qh0qgojodEb-GBkH5lxiYvEbwk62Bk",
+                authDomain: "cover-charges.firebaseapp.com",
+                databaseURL: "https://cover-charges.firebaseio.com",
+                projectId: "cover-charges",
+            };
+            firebase.initializeApp(config);
+            function createUser(email, password, acc_number, route_num, city, line1, post_code, state, business_name, bank_type, business_tax, first, last, ssn)
+            {
+                firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ...
+                    window.alert(errorMessage);
+                });
+                var database = firebase.database();
+                var authflag = false;
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if(authflag == false)
+                    {
+                        authflag= true;
+                    }
+                    else
+                    {
+                        if (user) {
+                            var enteredDate = document.getElementById('dateInput').valueAsDate;
+                            var day = enteredDate.getDate() + 1;
+                            var month = enteredDate.getMonth() + 1;
+                            var year = enteredDate.getFullYear();
+                            var d = new Date();
+                            var timeAccepted = d.getTime()/1000
+                            bank_type = bank_type.toLowerCase();
+                            firebase.database().ref('stripe_bar_users/' + user.uid).set({
+                                type: "vendor",
+                                preferred_name: document.getElementById('preferred_name').value,
+                                external_account: {object: "bank_account", account_number: acc_number, country: "US", currency: "usd", routing_number: route_num},
+                                legal_entity: {address: { city: city, line1: line1, postal_code: post_code, state: state}, business_name: business_name, business_tax_id: business_tax, dob: { day: day, month: month, year: year}, first_name: first, last_name: last, ssn_last_4: ssn, type: bank_type},
+                                tos_acceptance: {date: Math.round(timeAccepted), ip: ip}
+                            });
+                            window.location.href = "Bar%20Signup3.html";
+                        } else {
+                            window.alert("Make sure you have correctly filled all fields.");
+                        }
+                    }})
+
+            }
+        </script>
+        <script>
+            function disableSubmit() {
+                document.getElementById("button").disabled = true;
+            }
+
+            function activateButton(element) {
+
+                if(element.checked) {
+                    document.getElementById("button").disabled = false;
+                }
+                else  {
+                    document.getElementById("button").disabled = true;
+                }
+
+            }
+        </script>
+    </head>
+    <body onload="disableSubmit()">
+        <!--header-->
+        <div class="header-w3l">
+            <h1>           </h1>
+        </div>
+        <!--//header-->
+        <!--main-->
+        <div class="main-agileits">
+            <h2 class="sub-head">Sign Up</h2>
+            <div class="sub-main">
+                <div>
+                    <input placeholder="First Name" name="Name" id = "first" class="name" type="text" required>
+
+                    <span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span><br>
+
+                    <input placeholder="Last Name" name="Name" id = "last" class="name2" type="text" required>
+
+                    <span class="icon2"><i class="fa fa-user" aria-hidden="true"></i></span><br>
+
+                    <input placeholder="Phone Number" name="phoneNumber" id = "phone" class="number" type="text" required>
+
+                    <span class="icon3"><i class="fa fa-phone" aria-hidden="true"></i></span><br>
+
+                    <input placeholder="Email" name="mail" id = "email" class="mail" type="email" required>
+
+                    <span class="icon4"><i class="fa fa-envelope" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Password" name="Password" class="pass" id = "password" type="password" required>
+
+                    <span class="icon5"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Confirm Password" name="Password" id = "confirmPass" class="pass" type="password" required>
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Bank Account Number" name="account_number" id = "acc_number" class="pass" type="number" required>
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Routing Number" name="route_num" class="pass" id = "route_num" type="number" required>
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="City" name="city" id = "city" class="pass" type="text" required="">
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Address" name="line1" id = "line1" class="pass" type="text" required="">
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Postal Code" name="post_code" id = "post_code" class="pass" type="text" required="">
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="State" name="state" id = "state" class="pass" type="text" required="">
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Business Name" name="business_name" id = "business_name" class="pass" type="text" required="">
+                    <span class = "icon6"><i class = "fa fa-unlock" aria-hidden="true"></i></span><br>
+                    <input placeholder ="Preferred Name in App" name ="preferred_name" id = "preferred_name" class = "pass" type = "text" required = "">
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+                    <div id = "bank_type_selection">
+                        <label for="bank_type">Bank Type(Individual or Company):
+                            <input list="types" name="bank_type" id = "bank_type"/></label>
+                        <datalist id="types">
+                            <option value="Individual">
+                            <option value="Company">
+                        </datalist>
+                    </div>
+
+                    <input  placeholder="Business Tax ID" name="business_tax" id = "business_tax" class="pass" type="text" required="">
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="Date of Birth" name="dateInput" id = "dateInput" class="pass" type="date" required="">
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  placeholder="SSN Last 4" name="ssn" id = "ssn" class="number" type="number" required="">
+
+                    <span class="icon6"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <input  name="terms" type="checkbox" required="" onchange="activateButton(this)">
+                    <label for="myCheckbox" style = "color:coral">
+                        I agree to the <a href= "Bar%20Signup.html" style = "color:deepskyblue">terms and conditions</a>.
+                    </label>
+                    <span class="icon6" ><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+
+                    <!-- add extra data to be collected here, add parameters to createUser below-->
+
+                    <input type="button" value="Submit Account Info" id = "button" onclick ="createUser(document.getElementById('email').value, document.getElementById('password').value, document.getElementById('acc_number').value, document.getElementById('route_num').value, document.getElementById('city').value, document.getElementById('line1').value, document.getElementById('post_code').value, document.getElementById('state').value, document.getElementById('business_name').value, document.getElementById('bank_type').value, document.getElementById('business_tax').value, document.getElementById('first').value, document.getElementById('last').value, document.getElementById('ssn').value)"/>
+
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--//main-->
+
+        <!--footer-->
+        <div class="footer-w3">
+            <p>&copy; 2016 Flat Sign Up Form . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        </div>
+        <!--//footer-->
+
+    </body>
+</html>

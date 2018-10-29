@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Dashboard</title>
+  <!--
+
+  Template 2089 Meteor
+
+  http://www.tooplate.com/view/2089-meteor
+
+-->
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/fontAwesome.css">
+<link rel="stylesheet" href="css/hero-slider.css">
+<link rel="stylesheet" href="css/tooplate-style.css">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
+<script>
+var config = {
+  apiKey: "AIzaSyCZ3qh0qgojodEb-GBkH5lxiYvEbwk62Bk",
+  authDomain: "cover-charges.firebaseapp.com",
+  databaseURL: "https://cover-charges.firebaseio.com",
+  projectId: "cover-charges",
+};
+firebase.initializeApp(config);
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var span1 = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  var txt1 = document.createElement("INPUT");
+  span.className = "close";
+  span1.className = "close1";
+  txt1.className = "textPrice"
+  span.appendChild(txt);
+  span1.appendChild(txt1);
+  myNodelist[i].appendChild(span1);
+  myNodelist[i].appendChild(span);
+
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    var divParent = div.parentElement;
+    console.log(divParent.removeChild(div))
+  }
+}
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  li.className = "menuItem"
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var span1 = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  var txt1 = document.createElement("INPUT");
+  span.className = "close";
+  span1.className = "close1";
+  txt1.className = "textPrice"
+  span1.appendChild(txt1);
+  span.appendChild(txt);
+  li.appendChild(span);
+  li.appendChild(span1);
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      var divParent = div.parentElement;
+      console.log(divParent.removeChild(div))
+    }
+  }
+}
+function populate(val, price) {
+  var li = document.createElement("li");
+  var t = document.createTextNode(val);
+  li.appendChild(t);
+  li.className = "menuItem"
+  document.getElementById("myUL").appendChild(li);
+
+  var span = document.createElement("SPAN");
+  var span1 = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  var txt1 = document.createElement("INPUT");
+  txt1.value = price;
+  span.className = "close";
+  span1.className = "close1";
+  txt1.className = "textPrice";
+  span1.appendChild(txt1);
+  span.appendChild(txt);
+  li.appendChild(span);
+  li.appendChild(span1);
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      var divParent = div.parentElement;
+      divParent.removeChild(div)
+    }
+  }
+}
+var database = firebase.database();
+
+function populateMenu()
+{
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var userId = firebase.auth().currentUser.uid;
+      firebase.database().ref('/stripe_bar_users/' + userId +'/cover_charges/').once('value').then(function(snapshot) {
+        if(snapshot.val() === true)
+        {
+          document.getElementsByName("coverCheck")[0].checked = true
+        }else
+        {
+          document.getElementById('cover').style.display = 'none';
+        }
+      })
+      firebase.database().ref('/stripe_bar_users/' + userId +'/line_skip/').once('value').then(function(snapshot) {
+        if(snapshot.val() === true)
+        {
+          document.getElementsByName("lineSkipCheck")[0].checked = true
+        }
+        else {
+          document.getElementById('lineSkip').style.display = 'none';
+        }
+      })
+
+      firebase.database().ref('/stripe_bar_users/' + userId +'/drinks/').once('value').then(function(snapshot) {
+        if(snapshot.val() === true)
+        {
+            document.getElementById("myUL").innerHTML = '';
+          document.getElementsByName("drinkCheck")[0].checked = true
+          firebase.database().ref('/stripe_bar_pricing/' + userId +'/menu_items/').once('value').then(function(snapshot) {
+            snapshot.forEach(function(userSnapshot) {
+              let price = userSnapshot.child("/price/").val();
+              let name = userSnapshot.child("/name/").val();
+              if(price == null)
+              {
+                populate(name,"0");
+              }
+              else
+              {
+                populate(name,price);
+              }
+
+            });
+
+          });
+        }
+        else {
+          document.getElementById('drinks').style.display = 'none';
+        }
+
+      })
+
+    } else {
+      window.location.href = "index.html";
+    }
+  })
+}
+function logout()
+{
+  firebase.auth().signOut().then(function() {
+    window.location.href = "index.html";
+  }).catch(function(error) {
+    // An error happened.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+  });
+}
+function getBalance()
+{
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var userId = firebase.auth().currentUser.uid;
+      firebase.database().ref('/stripe_bar_users/' + userId +'/balance/').on('value', function(snapshot) {
+        if(snapshot.val() === null)
+        {
+          document.getElementById("balanceVal").textContent = "Balance: " + 0;
+        }
+        else
+        {
+          document.getElementById("balanceVal").textContent = "Balance: $" + snapshot.val();
+        }
+      });
+    }
+    else
+    {
+      window.location.href = "index.html"
+    }
+  })
+}
+function updateMenu()
+{
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var userId = firebase.auth().currentUser.uid;
+      var ref = firebase.database().ref('/stripe_bar_pricing/' + userId +'/menu_items/');
+      ref.remove();
+      var ul = document.getElementById("myUL");
+      var items = ul.getElementsByTagName("li");
+      var prices = document.getElementsByClassName("textPrice");
+      for (var i = 0; i < items.length; ++i) {
+        var str = items[i].textContent
+        var price = prices[i].value
+        str = str.substring(0,str.length-1)
+        ref.push({
+          name: str,
+          price: price
+        })}
+        window.alert("We have updated your menu.")
+      }
+      else
+      {
+        window.location.href = "index.html"
+      }
+    })
+  }
+  </script>
+
+</head>
+
+<body onload = "populateMenu()">
+  <div class="header" style = "background-color: lightgray">
+    <div class="container">
+      <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+          <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand scroll-top">
+            <div class="logo"></div>
+          </a>
+        </div>
+        <!--/.navbar-header-->
+        <div id="main-nav" class="collapse navbar-collapse" >
+          <ul class="nav navbar-nav">
+
+            <li><a href="#" class = "scroll-link" data-id="balance">Bar Statistics</a></li>
+            <li><a href="#" class="scroll-link" data-id="cover-drinks">Accept Cover/Drinks</a></li>
+            <li><a href="#" class="scroll-link" data-id="manage-pricing">Manage Pricing</a></li>
+            <li><a href="#" class="scroll-link" data-id="contact">Contact Us</a></li>
+            <li><a href = "#" onclick = "logout()">Logout</a></li>
+          </ul>
+        </div>
+        <!--/.navbar-collapse-->
+      </nav>
+      <!--/.navbar-->
+    </div>
+    <!--/.container-->
+  </div>
+  <!--/.header-->
+
+
+
+
+
+  <div id="balance" class= "page-section">
+    <script>
+    getBalance();
+    </script>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h4>Bar Statistics</h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id = "accepting" class="col-sm-2 col-sm-offset-1">
+
+      <h2 id = "balanceVal"  class = "balance-text"></h2>
+    </div>
+    </div>
+    </div>
+  </div>
+  <div id="cover-drinks" class= "page-section">
+    <div class="container">
+      <div class = "row">
+        <div id = "accepting" class="col-md-12">
+          <div class="section-heading">
+            <h4>Accepting COVer/Drinks</h4>
+            <div class = "line-dec"></div>
+          </div>
+        </div>
+      </div>
+      <div class = "row">
+
+        <div id = "accepting" class="col-sm-1 col-sm-offset-1">
+          <input type = "checkbox" name = "coverCheck" onclick = "updateCoverStatus()">
+
+        </div>
+        <div class="col-md-3">
+          <h3 style = "display:inline; margin: 0%"> Accept Cover Charges </h2>
+          </div>
+        </div>
+        <div class = "row">
+
+          <div id = "accepting" class="col-sm-1 col-sm-offset-1">
+            <input type = "checkbox" name = "lineSkipCheck" onclick = "updateLineSkipStatus()">
+
+          </div>
+          <div class="col-md-4">
+            <h3 style = "display:inline; margin: 0%"> Accept LineSkip Charges </h2>
+            </div>
+          </div>
+        <div class = "row">
+
+          <div class="col-sm-1 col-sm-offset-1">
+            <input type = "checkbox" name = "drinkCheck" onclick = "updateDrinkStatus()">
+
+          </div>
+          <div class="col-md-3">
+            <h3 style = "display:inline;"> Accept Drink Charges </h2>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div id="manage-pricing" class= "page-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h4>Manage Pricing</h4>
+              <div class="line-dec"></div>
+            </div>
+          </div>
+        </div>
+        <div id = "drinks" class="row">
+          <div id="myDIV" class="header-addButton">
+            <h2>Add Menu Items</h2>
+            <input type="text" id="myInput" placeholder="Add Menu Items...">
+            <span onclick="newElement()" class="addBtn">Add Menu Item</span>
+          </div>
+          <ul id="myUL" class = "menu">
+
+          </ul>
+          <div class = "header-addButton">
+            <div class="white-button">
+              <a onclick="updateMenu()">Update Menu</a>
+            </div>
+          </div>
+        </div>
+        <div id = "cover" class="row">
+          <div id="myDIV" class="header-addButton">
+            <h2>Update Cover Price</h2>
+            <input type="text" id="coverField" placeholder="Update Cover Charge Price...">
+            <span onclick="updateCover()" class="addBtn">Update Cover</span>
+          </div>
+        </div>
+        <div id = "lineSkip" class="row">
+          <div id="myDIV" class="header-addButton">
+            <h2>Update LineSkip Price</h2>
+            <input type="text" id="lineSkipField" placeholder="Update LineSkip Price...">
+            <span onclick="updateLineSkip()" class="addBtn">Update LineSkip</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div id="contact" class="page-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h4>Contact Us</h4>
+              <div class="line-dec"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="contact-us">
+              <h4 style = "color: #fff; display:inline;">For issues relating to our website contact </h4>
+              <a href = "mailto:help@flinck.com Subject=Website"> <h4 style ="display:inline">help@flinck.com</h4></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="copyright-text">
+              <p>Copyright &copy; 2017 Flinck
+                <br>
+                - Design: <a href="http://www.tooplate.com" target="_parent">Tooplate</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+      <script src="js/vendor/bootstrap.min.js"></script>
+
+      <script src="js/main.js"></script>
+      <script src = "js/plugins.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      $(document).ready(function() {
+        // navigation click actions
+        $('.scroll-link').on('click', function(event){
+          event.preventDefault();
+          var sectionID = $(this).attr("data-id");
+          scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+          event.preventDefault();
+          $('html, body').animate({scrollTop:0}, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+          event.preventDefault();
+          $('#main-nav').toggleClass("open");
+        });
+      });
+      // scroll function
+      function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+          mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+          mainNav.removeClass("open");
+        }
+      }
+      if (typeof console === "undefined") {
+        console = {
+          log: function() { }
+        };
+      }
+      </script>
+      <script>
+      function updateCoverStatus()
+      {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            console.log("inhr")
+            var userId = firebase.auth().currentUser.uid;
+            var ref = firebase.database().ref('/stripe_bar_users/' + userId +'/cover_charges/');
+            ref.remove();
+              var isCover = document.getElementsByName("coverCheck")[0].checked
+              ref.set(isCover)
+              if(isCover)
+              {
+                document.getElementById('cover').style.display = 'inherit';
+              }
+              else {
+                document.getElementById('cover').style.display = 'none';
+              }
+              window.alert("We have updated your menu.")
+            }
+            else
+            {
+              window.location.href = "index.html"
+            }
+          })
+      }
+      function updateCover()
+      {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+        var userId = firebase.auth().currentUser.uid;
+        var ref = firebase.database().ref('/stripe_bar_pricing/' + userId +'/cover_price/');
+        let coverPrice = document.getElementById("coverField").value
+        ref.set(coverPrice)
+      }
+      else
+      {
+        window.location.href = "index.html"
+      }
+    })
+      }
+      function updateLineSkipStatus()
+      {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            console.log("inhr")
+            var userId = firebase.auth().currentUser.uid;
+            var ref = firebase.database().ref('/stripe_bar_users/' + userId +'/line_skip/');
+            ref.remove();
+              var isCover = document.getElementsByName("lineSkipCheck")[0].checked
+              ref.set(isCover)
+              if(isCover)
+              {
+                document.getElementById('lineSkip').style.display = 'inherit';
+              }
+              else {
+                document.getElementById('lineSkip').style.display = 'none';
+              }
+              window.alert("We have updated your menu.")
+            }
+            else
+            {
+              window.location.href = "index.html"
+            }
+          })
+      }
+      function updateLineSkip()
+      {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+        var userId = firebase.auth().currentUser.uid;
+        var ref = firebase.database().ref('/stripe_bar_pricing/' + userId +'/line_skip/');
+        let coverPrice = document.getElementById("lineSkipField").value
+        ref.set(coverPrice)
+      }
+      else
+      {
+        window.location.href = "index.html"
+      }
+    })
+      }
+      function updateDrinkStatus()
+      {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            console.log("inhr")
+            var userId = firebase.auth().currentUser.uid;
+            var ref = firebase.database().ref('/stripe_bar_users/' + userId +'/drinks/');
+            ref.remove();
+              var isDrink = document.getElementsByName("drinkCheck")[0].checked
+              ref.set(isDrink)
+              if(isDrink)
+              {
+                document.getElementById('drinks').style.display = 'inherit';
+                document.getElementsByName("drinkCheck")[0].checked = true
+                firebase.database().ref('/stripe_bar_pricing/' + userId +'/menu_items/').once('value').then(function(snapshot) {
+                    document.getElementById("myUL").innerHTML = '';
+                  snapshot.forEach(function(userSnapshot) {
+                    let price = userSnapshot.child("/price/").val();
+                    let name = userSnapshot.child("/name/").val();
+                    if(price == null)
+                    {
+                      populate(name,"0");
+                    }
+                    else
+                    {
+                      populate(name,price);
+                    }
+
+                  });
+
+                });
+              }
+              else {
+                document.getElementById('drinks').style.display = 'none';
+              }
+              window.alert("We have updated your menu.")
+            }
+            else
+            {
+              window.location.href = "index.html"
+            }
+          })
+      }
+      </script>
+    </body>
+    </html>
