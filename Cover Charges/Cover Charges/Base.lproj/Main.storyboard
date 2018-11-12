@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q2C-TA-fbd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1056,7 +1056,7 @@ A users’ account may be terminated for any reason, including but not limited t
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="WCx-zD-lNB">
-                        <barButtonItem key="leftBarButtonItem" image="icons8-menu-filled-50.png" id="Rdd-E6-U5H">
+                        <barButtonItem key="leftBarButtonItem" image="icons8-menu-40.png" id="Rdd-E6-U5H">
                             <connections>
                                 <action selector="moveToMenu:" destination="fpP-DP-Bc5" id="Sis-fD-wuG"/>
                             </connections>
@@ -1576,7 +1576,7 @@ A users’ account may be terminated for any reason, including but not limited t
             <objects>
                 <tabBarController storyboardIdentifier="coverScreen" id="IVc-HU-uwh" customClass="TabBar" customModule="Cover_Charges" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aW2-3w-QPe">
-                        <barButtonItem key="leftBarButtonItem" image="icons8-menu-filled-50.png" id="F1O-rg-b1o">
+                        <barButtonItem key="leftBarButtonItem" image="icons8-menu-40.png" id="F1O-rg-b1o">
                             <connections>
                                 <action selector="moveToMenu:" destination="IVc-HU-uwh" id="vEb-2y-LZT"/>
                             </connections>
@@ -1995,7 +1995,7 @@ A users’ account may be terminated for any reason, including but not limited t
     <resources>
         <image name="Flinck Logo Cropped 50.png" width="50" height="31"/>
         <image name="edan-cohen-2487.jpg" width="5760" height="3840"/>
-        <image name="icons8-menu-filled-50.png" width="30" height="30"/>
+        <image name="icons8-menu-40.png" width="40" height="40"/>
         <image name="noun_17825_cc.png" width="50" height="50"/>
         <image name="x-png-35408.png" width="266" height="297"/>
     </resources>

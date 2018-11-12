@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E126624218B5E080045BA87 /* Flinck Logo Cropped 50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E126623218B5E070045BA87 /* Flinck Logo Cropped 50.png */; };
+		5E126626218B5E480045BA87 /* noun_17825_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E126625218B5E480045BA87 /* noun_17825_cc.png */; };
+		5E126628218B5E680045BA87 /* x-png-35408.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E126627218B5E660045BA87 /* x-png-35408.png */; };
 		5E13B896205225720078F6DD /* TicketCreationCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E13B895205225720078F6DD /* TicketCreationCover.swift */; };
 		5E33E7A91F8BF900009C3E2E /* ReceiptsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E33E7A81F8BF900009C3E2E /* ReceiptsListCell.xib */; };
-		5E3E24332077F6B500FA99BC /* icons8-menu-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E3E24322077F6B400FA99BC /* icons8-menu-filled-50.png */; };
 		5E4182081F3A2DCA00CCE076 /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4182071F3A2DCA00CCE076 /* AccountScreen.swift */; };
 		5E48FAA21F392AE9009D50B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48FAA11F392AE9009D50B0 /* AppDelegate.swift */; };
 		5E48FAA41F392AE9009D50B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48FAA31F392AE9009D50B0 /* ViewController.swift */; };
@@ -17,7 +19,8 @@
 		5E48FAA91F392AE9009D50B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E48FAA81F392AE9009D50B0 /* Assets.xcassets */; };
 		5E48FAAC1F392AE9009D50B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E48FAAA1F392AE9009D50B0 /* LaunchScreen.storyboard */; };
 		5E5525251FFC61260050CACC /* TicketCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5525231FFC61260050CACC /* TicketCreation.swift */; };
-		5E59D4DC1F3BAE81005E43C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E59D4DB1F3BAE80005E43C6 /* GoogleService-Info.plist */; };
+		5E61679921940F9E00801F4C /* edan-cohen-2487.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E61679721940F9E00801F4C /* edan-cohen-2487.jpg */; };
+		5E61679A21940F9E00801F4C /* icons8-menu-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E61679821940F9E00801F4C /* icons8-menu-40.png */; };
 		5E693A081F76F8CA00F4DF88 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E693A071F76F8CA00F4DF88 /* SignUp.swift */; };
 		5E75BBAE20051E7400FF31F3 /* TicketStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E75BBAD20051E7400FF31F3 /* TicketStruct.swift */; };
 		5E75BBB020053BF500FF31F3 /* TicketsCreationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E75BBAF20053BF500FF31F3 /* TicketsCreationCell.xib */; };
@@ -26,19 +29,16 @@
 		5E75BBB62006937700FF31F3 /* BarSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E75BBB52006937700FF31F3 /* BarSelectionCell.swift */; };
 		5E75BBB82007C2BB00FF31F3 /* BarStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E75BBB72007C2BB00FF31F3 /* BarStruct.swift */; };
 		5E770D0B20916F0F0004AF1C /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E770D0A20916F0F0004AF1C /* AccountSettings.swift */; };
+		5E782E3D219A1B9F00772DF4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E782E3C219A1B9F00772DF4 /* GoogleService-Info.plist */; };
 		5E9C94281F55D9CC00F9E540 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C94271F55D9CC00F9E540 /* Constants.swift */; };
-		5E9C942C1F5602D700F9E540 /* edan-cohen-2487.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C942B1F5602D700F9E540 /* edan-cohen-2487.jpg */; };
 		5EA4544E204F28E800CDE4FB /* Bar_SelectionCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4544D204F28E800CDE4FB /* Bar_SelectionCover.swift */; };
 		5EAD77A11F670DFD0042C769 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD77A01F670DFD0042C769 /* Receipt.swift */; };
-		5EAD77A31F6754B40042C769 /* x-png-35408.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD77A21F6754B40042C769 /* x-png-35408.png */; };
 		5EAD77A51F675D2D0042C769 /* ReceiptsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD77A41F675D2D0042C769 /* ReceiptsList.swift */; };
 		5EAD77A71F6763A90042C769 /* ReceiptsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD77A61F6763A90042C769 /* ReceiptsListCell.swift */; };
 		5EAED93420E125F200059B60 /* CreditCardEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAED93320E125F200059B60 /* CreditCardEdit.swift */; };
 		5EAED93B20E5164800059B60 /* CreditCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAED93920E5164800059B60 /* CreditCardCell.swift */; };
 		5EAED93C20E5164800059B60 /* CreditCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EAED93A20E5164800059B60 /* CreditCardCell.xib */; };
 		5EAED93E20E59F5E00059B60 /* CreditCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAED93D20E59F5E00059B60 /* CreditCardDetail.swift */; };
-		5EC3E09B20755879005D2C7A /* noun_17825_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EC3E09A20755879005D2C7A /* noun_17825_cc.png */; };
-		5EC3E09D20755925005D2C7A /* Flinck Logo Cropped 50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EC3E09C20755924005D2C7A /* Flinck Logo Cropped 50.png */; };
 		5EC56DCF1F54CDD200F77BCA /* TermsAndConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC56DCE1F54CDD200F77BCA /* TermsAndConditions.swift */; };
 		5ECF45D120AB6B4F0063A98B /* EmailChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECF45D020AB6B4F0063A98B /* EmailChange.swift */; };
 		5ECF45D320AB73F10063A98B /* passwordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECF45D220AB73F10063A98B /* passwordChange.swift */; };
@@ -60,9 +60,11 @@
 /* Begin PBXFileReference section */
 		0CB230027C85BCAE94784C73 /* Pods_Cover_Charges.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cover_Charges.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA716CB358DD5F7CAC11A02 /* Pods-Cover Charges.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cover Charges.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cover Charges/Pods-Cover Charges.release.xcconfig"; sourceTree = "<group>"; };
+		5E126623218B5E070045BA87 /* Flinck Logo Cropped 50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flinck Logo Cropped 50.png"; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/Trella/Flinck Logo Cropped 50.png"; sourceTree = "<group>"; };
+		5E126625218B5E480045BA87 /* noun_17825_cc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noun_17825_cc.png; path = ../../../../Downloads/noun_17825_cc.png; sourceTree = "<group>"; };
+		5E126627218B5E660045BA87 /* x-png-35408.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "x-png-35408.png"; path = "../../../../Downloads/x-png-35408.png"; sourceTree = "<group>"; };
 		5E13B895205225720078F6DD /* TicketCreationCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCreationCover.swift; sourceTree = "<group>"; };
 		5E33E7A81F8BF900009C3E2E /* ReceiptsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiptsListCell.xib; sourceTree = "<group>"; };
-		5E3E24322077F6B400FA99BC /* icons8-menu-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-menu-filled-50.png"; path = "../../../Downloads/icons8-menu-filled-50.png"; sourceTree = "<group>"; };
 		5E4182041F3A201000CCE076 /* Cover Charges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cover Charges.entitlements"; sourceTree = "<group>"; };
 		5E4182071F3A2DCA00CCE076 /* AccountScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
 		5E48FA9E1F392AE9009D50B0 /* Cover Charges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cover Charges.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +75,8 @@
 		5E48FAAB1F392AE9009D50B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E48FAAD1F392AE9009D50B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E5525231FFC61260050CACC /* TicketCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCreation.swift; sourceTree = "<group>"; };
-		5E59D4DB1F3BAE80005E43C6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5E61679721940F9E00801F4C /* edan-cohen-2487.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "edan-cohen-2487.jpg"; sourceTree = "<group>"; };
+		5E61679821940F9E00801F4C /* icons8-menu-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-menu-40.png"; sourceTree = "<group>"; };
 		5E693A071F76F8CA00F4DF88 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		5E75BBAD20051E7400FF31F3 /* TicketStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStruct.swift; sourceTree = "<group>"; };
 		5E75BBAF20053BF500FF31F3 /* TicketsCreationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketsCreationCell.xib; sourceTree = "<group>"; };
@@ -82,19 +85,16 @@
 		5E75BBB52006937700FF31F3 /* BarSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSelectionCell.swift; sourceTree = "<group>"; };
 		5E75BBB72007C2BB00FF31F3 /* BarStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarStruct.swift; sourceTree = "<group>"; };
 		5E770D0A20916F0F0004AF1C /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		5E782E3C219A1B9F00772DF4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5E9C94271F55D9CC00F9E540 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		5E9C942B1F5602D700F9E540 /* edan-cohen-2487.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "edan-cohen-2487.jpg"; path = "../../../Downloads/edan-cohen-2487.jpg"; sourceTree = "<group>"; };
 		5EA4544D204F28E800CDE4FB /* Bar_SelectionCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar_SelectionCover.swift; sourceTree = "<group>"; };
 		5EAD77A01F670DFD0042C769 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
-		5EAD77A21F6754B40042C769 /* x-png-35408.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "x-png-35408.png"; path = "../../../Downloads/x-png-35408.png"; sourceTree = "<group>"; };
 		5EAD77A41F675D2D0042C769 /* ReceiptsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptsList.swift; sourceTree = "<group>"; };
 		5EAD77A61F6763A90042C769 /* ReceiptsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptsListCell.swift; sourceTree = "<group>"; };
 		5EAED93320E125F200059B60 /* CreditCardEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardEdit.swift; sourceTree = "<group>"; };
 		5EAED93920E5164800059B60 /* CreditCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardCell.swift; sourceTree = "<group>"; };
 		5EAED93A20E5164800059B60 /* CreditCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditCardCell.xib; sourceTree = "<group>"; };
 		5EAED93D20E59F5E00059B60 /* CreditCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDetail.swift; sourceTree = "<group>"; };
-		5EC3E09A20755879005D2C7A /* noun_17825_cc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noun_17825_cc.png; path = ../../../Downloads/noun_17825_cc.png; sourceTree = "<group>"; };
-		5EC3E09C20755924005D2C7A /* Flinck Logo Cropped 50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flinck Logo Cropped 50.png"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/Trella/Flinck Logo Cropped 50.png"; sourceTree = "<group>"; };
 		5EC56DCE1F54CDD200F77BCA /* TermsAndConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditions.swift; sourceTree = "<group>"; };
 		5ECF45D020AB6B4F0063A98B /* EmailChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailChange.swift; sourceTree = "<group>"; };
 		5ECF45D220AB73F10063A98B /* passwordChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordChange.swift; sourceTree = "<group>"; };
@@ -155,14 +155,11 @@
 		5E48FAA01F392AE9009D50B0 /* Cover Charges */ = {
 			isa = PBXGroup;
 			children = (
-				5E9C942B1F5602D700F9E540 /* edan-cohen-2487.jpg */,
-				5EAD77A21F6754B40042C769 /* x-png-35408.png */,
+				5E126623218B5E070045BA87 /* Flinck Logo Cropped 50.png */,
+				5E126625218B5E480045BA87 /* noun_17825_cc.png */,
+				5E126627218B5E660045BA87 /* x-png-35408.png */,
 				5E4182041F3A201000CCE076 /* Cover Charges.entitlements */,
-				5EC3E09C20755924005D2C7A /* Flinck Logo Cropped 50.png */,
-				5EC3E09A20755879005D2C7A /* noun_17825_cc.png */,
-				5E59D4DB1F3BAE80005E43C6 /* GoogleService-Info.plist */,
 				5E48FAA11F392AE9009D50B0 /* AppDelegate.swift */,
-				5E3E24322077F6B400FA99BC /* icons8-menu-filled-50.png */,
 				5E48FAA31F392AE9009D50B0 /* ViewController.swift */,
 				5E48FAA51F392AE9009D50B0 /* Main.storyboard */,
 				5E4182071F3A2DCA00CCE076 /* AccountScreen.swift */,
@@ -173,7 +170,10 @@
 				5EC56DCE1F54CDD200F77BCA /* TermsAndConditions.swift */,
 				5ED79CF81F552254009F441B /* LeftSlider.swift */,
 				5E9C94271F55D9CC00F9E540 /* Constants.swift */,
+				5E782E3C219A1B9F00772DF4 /* GoogleService-Info.plist */,
 				5EAD77A01F670DFD0042C769 /* Receipt.swift */,
+				5E61679721940F9E00801F4C /* edan-cohen-2487.jpg */,
+				5E61679821940F9E00801F4C /* icons8-menu-40.png */,
 				5EE684DE2013E00C00E882DB /* MenuStruct.swift */,
 				5EE684DA2013DD8300E882DB /* MenuListCell.swift */,
 				5EE684DB2013DD8300E882DB /* MenuListCell.xib */,
@@ -228,7 +228,6 @@
 				5E48FA9B1F392AE8009D50B0 /* Frameworks */,
 				5E48FA9C1F392AE8009D50B0 /* Resources */,
 				E88C2C63CAE51CC82ACE011E /* [CP] Embed Pods Frameworks */,
-				3A8503F938C7F296E25CBF0D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,41 +284,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E75BBB42006930300FF31F3 /* BarSelectionCell.xib in Resources */,
-				5E3E24332077F6B500FA99BC /* icons8-menu-filled-50.png in Resources */,
+				5E126624218B5E080045BA87 /* Flinck Logo Cropped 50.png in Resources */,
+				5E782E3D219A1B9F00772DF4 /* GoogleService-Info.plist in Resources */,
+				5E61679A21940F9E00801F4C /* icons8-menu-40.png in Resources */,
 				5E33E7A91F8BF900009C3E2E /* ReceiptsListCell.xib in Resources */,
 				5E48FAAC1F392AE9009D50B0 /* LaunchScreen.storyboard in Resources */,
+				5E126628218B5E680045BA87 /* x-png-35408.png in Resources */,
 				5EAED93C20E5164800059B60 /* CreditCardCell.xib in Resources */,
 				5ED4FB321F81F8F300A582C7 /* dropCell.xib in Resources */,
-				5E59D4DC1F3BAE81005E43C6 /* GoogleService-Info.plist in Resources */,
 				5E48FAA91F392AE9009D50B0 /* Assets.xcassets in Resources */,
-				5E9C942C1F5602D700F9E540 /* edan-cohen-2487.jpg in Resources */,
-				5EC3E09B20755879005D2C7A /* noun_17825_cc.png in Resources */,
+				5E126626218B5E480045BA87 /* noun_17825_cc.png in Resources */,
+				5E61679921940F9E00801F4C /* edan-cohen-2487.jpg in Resources */,
 				5E75BBB020053BF500FF31F3 /* TicketsCreationCell.xib in Resources */,
-				5EC3E09D20755925005D2C7A /* Flinck Logo Cropped 50.png in Resources */,
 				5E48FAA71F392AE9009D50B0 /* Main.storyboard in Resources */,
 				5EE684DD2013DD8300E882DB /* MenuListCell.xib in Resources */,
-				5EAD77A31F6754B40042C769 /* x-png-35408.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3A8503F938C7F296E25CBF0D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cover Charges/Pods-Cover Charges-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9C9C15185E2F5EAC48E3711D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
